@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokedex</title>
+    <link rel="stylesheet" href="./style//style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <!-- La web app deve essere suddivisa in tre componenti:
+
+Search Bar: tramite la search bar è possibile cercare un Pokemon. 
+La ricerca va fatta sfruttando l'API PokéAPI (https://pokeapi.co/)
+Dettaglio Pokemon: l'utente visualizza alcune informazioni base del pokemon. 
+Le statistiche sono mostrate con delle progress-bar. 
+L'utente ha anche la possibilità di visualizzare l'immagine del pokemon in modalità default o shiny
+Pokedex: è possibile aggiungere dei pokemon al proprio pokedex, per un massimo di 10 pokemon. 
+Per ogni pokemon è possibile rivedere le statistiche cliccando su Mostra 
+oppure eliminarlo dal pokedex cliccando su Elimina.
+ Il pokedex viene salvato in locale,
+così che sia disponibile anche dopo il refresh o all'avvio dell'app -->
+  <body>
+    <header>
+      <div class="container">
+        <div class="searchbar">
+          <input
+            type="text"
+            placeholder="Che pokemon vuoi cercare ?"
+            id="pokemonName"
+          />
+          <button click="callPokemon" id="search">
+            <img src="./img/download.png" />
+          </button>
+        </div>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="pokemon_window">
+          <div class="pokemon_resume">
+            <div class="name" id="name"></div>
+            <div class="weight" id="weight"></div>
+            <div class="height" id="height"></div>
+          </div>
+          <div class="pokemon_selected">
+            <div class="pokemon_img" id="image"></div>
+            <div class="pokemon_stats" id="stats"></div>
+            <div class="add_pokemon">
+              <button id="add" class="hidden">Aggiungilo al tuo pokedex</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container">
+        <ul id="pokedex" class="pokedex"></ul>
+      </div>
+    </footer>
+    <script src="./main.js"></script>
+  </body>
+</html>
