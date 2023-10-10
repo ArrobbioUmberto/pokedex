@@ -51,14 +51,14 @@ function addToPokedex() {
     personalPokedex.push(currentPokemon);
     renderPokedex();
   } else {
-    window.alert("Ci sono già dieci pokemon e devi eliminarne uno");
+    window.alert("Ci sono già dieci pokemon nello zaino, non abbiamo più spazio ! Decidi chi vuoi liberare");
   }
 }
 function renderPokedex() {
   let pokedexList = "";
 
   for (i = 0; i < personalPokedex.length; i++) {
-    pokedexList += `<li><img src='${personalPokedex[i].sprites.front_default}'/><h3>${personalPokedex[i].name} </h3><div class='box_button'><button class='show' onclick="showPokemon(${i})">Mostra</button> <button class='delete' onclick="removePokemon(${i})">Elimina</button></div></li>`;
+    pokedexList += `<li><img src='${personalPokedex[i].sprites.front_default}'/><h3>${personalPokedex[i].name} </h3><div class='box_button'><button class='show' onclick="showPokemon(${i})">Mostra</button> <button class='delete' onclick="removePokemon(${i})">Libera</button></div></li>`;
   }
 
   myPokedex.innerHTML = pokedexList; // Assegna la lista al Pokedex
