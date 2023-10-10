@@ -195,7 +195,7 @@ button img {
 /* MEDIA FOR DEVICE  */
 
 
-@media (min-width:375px){
+@media (max-width:768px){
 
     .pokemon_selected{
         flex-direction: column;
