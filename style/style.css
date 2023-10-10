@@ -192,4 +192,18 @@ button img {
     cursor: pointer;
 }
 
-/* FOOTER  */
+/* MEDIA FOR DEVICE  */
+
+
+@media (min-width:375px){
+
+    .pokemon_selected{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 20px;
+    }
+    .pokedex li{
+        flex-basis: calc(50% - 10px);
+    }
+}
