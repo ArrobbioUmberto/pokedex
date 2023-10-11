@@ -3,6 +3,7 @@ const searchButton = document.getElementById("search");
 const myPokedex = document.getElementById("pokedex");
 const addPokemon = document.getElementById("add");
 const textTeam = document.getElementById("text_team");
+let currentDisplayedPokemon = null;
 let currentPokemon = [];
 let personalPokedex = [];
 let inputPokemonNAme = document.getElementById("pokemonName");
@@ -19,7 +20,7 @@ function callPokemon() {
       return response.json();
     })
     .then((pokemon) => {
-      console.log(pokemon.stats);
+      // console.log(pokemon.stats);
       const namePokemon = document.getElementById("name");
       const weigthPokemon = document.getElementById("weight");
       const heightPokemon = document.getElementById("height");
@@ -50,6 +51,7 @@ addPokemon.addEventListener("click", addToPokedex);
 function addToPokedex() {
   if (personalPokedex.length < 10) {
     personalPokedex.push(currentPokemon);
+    currentDisplayedPokemon = currentPokemon;
     renderPokedex();
   } else {
     window.alert(
@@ -68,9 +70,26 @@ function renderPokedex() {
 }
 
 function showPokemon(index) {
-  const pokemon = personalPokedex[index];
-  // Puoi implementare la logica per mostrare i dettagli del Pokémon come preferisci
-  console.log("Mostra il Pokémon:", pokemon);
+  const selectedPokemon = personalPokedex[index];
+  const namePokemon = document.getElementById("name");
+  const weigthPokemon = document.getElementById("weight");
+  const heightPokemon = document.getElementById("height");
+  const imagePokemon = document.getElementById("image");
+  const statsPokemon = document.getElementById("stats");
+
+  namePokemon.innerHTML = `<p>Nome: ${selectedPokemon.name}</p>`;
+  weigthPokemon.innerHTML = `<p>Peso: ${selectedPokemon.weight} kg</p>`;
+  heightPokemon.innerHTML = `<p>Altezza: ${selectedPokemon.height} m</p>`;
+  imagePokemon.innerHTML = `<img src='${selectedPokemon.sprites.front_default}' alt='${selectedPokemon.name}'/>`;
+  statsPokemon.innerHTML = `<ul>
+      <li><p>${selectedPokemon.stats[0].stat.name}</p><progress value='${selectedPokemon.stats[0].base_stat}' max=100></progress></li>
+      <li><p>${selectedPokemon.stats[1].stat.name}</p><progress value='${selectedPokemon.stats[1].base_stat}' max=100></progress></li>
+      <li><p>${selectedPokemon.stats[2].stat.name}</p><progress value='${selectedPokemon.stats[2].base_stat}' max=100></progress></li>
+      <li><p>${selectedPokemon.stats[3].stat.name}</p><progress value='${selectedPokemon.stats[3].base_stat}' max=100></progress></li>
+      <li><p>${selectedPokemon.stats[4].stat.name}</p><progress value='${selectedPokemon.stats[4].base_stat}' max=100></progress></li>
+      <li><p>${selectedPokemon.stats[5].stat.name}</p><progress value='${selectedPokemon.stats[5].base_stat}' max=100></progress></li>
+    </ul>`;
+
 }
 
 function removePokemon(index) {
