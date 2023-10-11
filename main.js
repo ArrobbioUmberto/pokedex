@@ -2,6 +2,7 @@ console.log("ciao");
 const searchButton = document.getElementById("search");
 const myPokedex = document.getElementById("pokedex");
 const addPokemon = document.getElementById("add");
+const textTeam = document.getElementById("text_team");
 let currentPokemon = [];
 let personalPokedex = [];
 let inputPokemonNAme = document.getElementById("pokemonName");
@@ -51,7 +52,9 @@ function addToPokedex() {
     personalPokedex.push(currentPokemon);
     renderPokedex();
   } else {
-    window.alert("Ci sono già dieci pokemon nello zaino, non abbiamo più spazio ! Decidi chi vuoi liberare");
+    window.alert(
+      "Ci sono già dieci pokemon nel tuo Team, non abbiamo più spazio ! Decidi chi vuoi liberare"
+    );
   }
 }
 function renderPokedex() {
@@ -60,7 +63,7 @@ function renderPokedex() {
   for (i = 0; i < personalPokedex.length; i++) {
     pokedexList += `<li><img src='${personalPokedex[i].sprites.front_default}'/><h3>${personalPokedex[i].name} </h3><div class='box_button'><button class='show' onclick="showPokemon(${i})">Mostra</button> <button class='delete' onclick="removePokemon(${i})">Libera</button></div></li>`;
   }
-
+  textTeam.classList.remove("hidden");
   myPokedex.innerHTML = pokedexList; // Assegna la lista al Pokedex
 }
 

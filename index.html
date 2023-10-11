@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pokedex</title>
-    <link rel="icon" type="image/png" href="./img/download.png"/>
+    <link rel="icon" type="image/png" href="img/pokelogo.png" />
     <link rel="stylesheet" href="./style//style.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,7 +52,7 @@ così che sia disponibile anche dopo il refresh o all'avvio dell'app -->
             <div class="pokemon_img" id="image"></div>
             <div class="pokemon_stats" id="stats"></div>
             <div class="add_pokemon">
-              <button id="add" class="hidden">Aggiungilo al tuo pokedex</button>
+              <button id="add" class="hidden">Aggiungilo al tuo team</button>
             </div>
           </div>
         </div>
@@ -60,6 +60,7 @@ così che sia disponibile anche dopo il refresh o all'avvio dell'app -->
     </main>
     <footer>
       <div class="container">
+        <h1 id='text_team' class="text_team hidden">Ecco la tua squadra !!</h1>
         <ul id="pokedex" class="pokedex"></ul>
       </div>
     </footer>
